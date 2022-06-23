@@ -1,24 +1,34 @@
-import logo from './logo.svg';
+import { Container, Nav, Navbar } from 'react-bootstrap';
+import { BrowserRouter, NavLink, Route, Routes } from 'react-router-dom';
 import './App.css';
+import Allposts from './componets/AllPosts';
 
 function App() {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+
+      <Navbar bg="light" expand="lg">
+        <Container>
+          <Navbar.Brand to="/">React App with Router</Navbar.Brand>
+          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Collapse id="basic-navbar-nav">
+            <Nav className="me-auto">
+              <Nav.Link as={NavLink} to="/">BlogPosts</Nav.Link>
+            </Nav>
+          </Navbar.Collapse>
+
+        </Container>
+      </Navbar>
+
+
+
+
+    <Routes>
+        <Route path="/" exact element={<Allposts />} />
+      </Routes>
+
+    </BrowserRouter>
   );
 }
 
